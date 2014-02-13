@@ -3,7 +3,9 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
 
-
+  validates :email, :password_hash, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: { with: /\w+@\w+\.\w+/}
 
   def password
     @password ||= Password.new(password_hash)
