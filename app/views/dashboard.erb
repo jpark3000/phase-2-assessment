@@ -4,16 +4,21 @@
   <form id='createEvent' method='POST' action='/create_event'>
     Name <input type='text' name='name'><br>
     Location <input type='text' name='location'><br>
-    <!-- Starts at <input type='datetime' name='starts_at'><br> -->
-    <!-- Ends at <input type='datetime' name='ends_at'><br> -->
+    Starts at <input type='text' name='starts_at'><br>
+    Ends at <input type='text' name='ends_at'><br>
     <input type='submit' value='Create Event!'>
   </form><br><br>
 
+
   <% if @events %>
-    <% @events.each do |event| %>
+    <% @events.reverse_each do |event| %>
       <ul id='eventsList'>
         <li><%= event.name %> | <%= event.location %> | <%= event.starts_at %> - <%= event.ends_at %><br><a href='/edit/<%= event.id %>'>edit</a> | <a href='/delete/<%= event.id %>'>delete</a></li>
+
       </ul>
     <% end %>
   <% end %>
+
+
+
 </div>
