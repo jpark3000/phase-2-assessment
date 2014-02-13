@@ -1,0 +1,19 @@
+<div class='container'>
+  <h1>Create an Event</h1>
+
+  <form id='createEvent' method='POST' action='/create_event'>
+    <input type='text' name='name'>
+    <input type='text' name='location'>
+    <input type='datetime' name='starts_at'>
+    <input type='datetime' name='ends_at'>
+    <input type='submit' value='Create Event!'>
+  </form>
+
+  <% if @events %>
+    <% @events.each do |event| %>
+      <ul id='eventsList'>
+        <li><%= event.name %> | <%= event.location %> | <%= event.starts_at %> - <%= event.ends_at %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

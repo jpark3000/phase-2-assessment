@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :email, format: { with: /\w+@\w+\.\w+/}
 
+  has_many :created_events, :class_name => 'Event', foreign_key: 'user_id'
+  has_many :event_attendances
+  has_many :attended_events, through: :event_attendances, source: :event
+
   def password
     @password ||= Password.new(password_hash)
   end
