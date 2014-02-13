@@ -1,0 +1,13 @@
+<div class='container'>
+  <h1>Edit an Event</h1>
+
+  <form id='editEvent' method='POST' action="/edit_event/<%= @event.id %>">
+    Name <input type='text' name='name' value=<%= @event.name %>><br>
+    Location <input type='text' name='location' value=<%= @event.location %>><br>
+    Starts at <input type='datetime' name='starts_at' value=<%= @event.starts_at %>><br>
+    Ends at <input type='datetime' name='ends_at' value=<%= @event.ends_at %>><br>
+    <input type='submit' value='Edit Event!'>
+  </form>
+
+
+</div>

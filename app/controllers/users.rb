@@ -27,6 +27,8 @@ end
 
 get '/dashboard' do
   if session[:user_id]
+    @user = User.find(session[:user_id])
+    @events = @user.created_events
     erb :dashboard
   else
     redirect to('/')

@@ -2,17 +2,17 @@
   <h1>Create an Event</h1>
 
   <form id='createEvent' method='POST' action='/create_event'>
-    <input type='text' name='name'>
-    <input type='text' name='location'>
-    <input type='datetime' name='starts_at'>
-    <input type='datetime' name='ends_at'>
+    Name <input type='text' name='name'><br>
+    Location <input type='text' name='location'><br>
+    <!-- Starts at <input type='datetime' name='starts_at'><br> -->
+    <!-- Ends at <input type='datetime' name='ends_at'><br> -->
     <input type='submit' value='Create Event!'>
-  </form>
+  </form><br><br>
 
   <% if @events %>
     <% @events.each do |event| %>
       <ul id='eventsList'>
-        <li><%= event.name %> | <%= event.location %> | <%= event.starts_at %> - <%= event.ends_at %></li>
+        <li><%= event.name %> | <%= event.location %> | <%= event.starts_at %> - <%= event.ends_at %><br><a href='/edit/<%= event.id %>'>edit</a> | <a href='/delete/<%= event.id %>'>delete</a></li>
       </ul>
     <% end %>
   <% end %>
